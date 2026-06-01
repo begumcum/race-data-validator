@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "race_validator"
+version = "0.2.1"
+description = "Validate race-results CSVs against the data contract"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Begum Cum" }]
+license = { text = "Proprietary" }
+
+dependencies = [
+    "pandas>=2.0",
+    "pandera>=0.20",
+    "rapidfuzz>=3.6",
+    "streamlit>=1.30",
+    "python-dateutil>=2.8",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+]
+
+[project.scripts]
+race-validator = "race_validator.app.launch:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["race_validator*"]
+
+[tool.setuptools.package-data]
+race_validator = ["data/*.csv", "app/assets/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
