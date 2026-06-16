@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "race_validator"
-version = "0.2.1"
+version = "0.2.6"
 description = "Validate race-results CSVs against the data contract"
 readme = "README.md"
 requires-python = ">=3.11"

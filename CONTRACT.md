@@ -1,8 +1,8 @@
-# Race Results Data Contract — v2.2.1
+# Race Results Data Contract — v2.3.0
 
 > **Status:** Active
-> **Library that enforces it:** `race_validator` v0.2.5
-> **Last revised:** 2026-05-29
+> **Library that enforces it:** `race_validator` v0.2.6
+> **Last revised:** 2026-06-16
 
 ---
 
@@ -120,8 +120,8 @@ When a numeric column carries a physical quantity, name it with a unit suffix:
 | Suffix | Meaning | Example |
 |---|---|---|
 | `_ms` | Milliseconds (integer) | `race_time_ms` |
-| `_m` | Metres (integer) | `circuit_length_m` |
-| `_km` | Kilometres (float) | `circuit_length_km` (not used; we use `_m`) |
+| `_m` | Metres (integer) | `layout_length_m` |
+| `_km` | Kilometres (float) | `layout_length_km` (not used; we use `_m`) |
 | `_kph` | Kilometres per hour | `best_lap_speed_kph` |
 | `_seconds` | Seconds (float) | (not currently used) |
 
@@ -425,9 +425,15 @@ No display variants needed — these are stable taxonomy strings.
 One row per championship. Columns:
 
 ```
-series_id, series_name_display, series_name_normalized,
+series_id, parent_organization, series_name_display, series_name_normalized,
 scope, country_id, region_id
 ```
+
+`parent_organization` is the umbrella organization a series belongs to (e.g.
+`Porsche Carrera Cup` for the national/regional Carrera Cup series, `Ferrari
+Challenge`, `Formula Middle East`). Empty for standalone series.
+`series_name_normalized` is the `series_name_display` run through
+`normalize_identifier` (§3a).
 
 **Scope-consistency rule:**
 
@@ -441,15 +447,29 @@ scope, country_id, region_id
 ### 4.5 `dim_circuits`
 
 One row per circuit layout (Brands Hatch GP and Brands Hatch Indy are
-separate rows).
+separate rows). Columns:
 
 ```
-circuit_id, circuit_full_name_display, circuit_full_name_normalized,
-city, country_id, latitude_dd, longitude_dd, circuit_length_m, layout
+circuit_id, circuit_full_name_display, layout_display,
+circuit_full_name_normalized, layout_normalized, local_address,
+latitude_dd, longitude_dd, country_id, layout_length_m,
+alt_circuit_full_name_display
 ```
 
-Coordinates are required (used for weather enrichment). `circuit_length_m` is
-in whole metres (`5891`, not `5.891`).
+- `circuit_full_name_display` / `layout_display` are the human-readable circuit
+  name and its specific layout, kept in separate columns.
+- `circuit_full_name_normalized` / `layout_normalized` are the respective
+  `_display` values run through `normalize_identifier` (§3a). `layout_normalized`
+  is empty when no layout is given.
+- `local_address` is the circuit's location/address (replaces the former
+  `city`).
+- `alt_circuit_full_name_display` holds an alternate/historical display name;
+  may be empty.
+- Coordinates (`latitude_dd`, `longitude_dd`) are required (used for weather
+  enrichment).
+- `layout_length_m` (formerly `circuit_length_m`) is **optional**: many obscure
+  layout variants have no officially published length, so this field may be
+  empty. When present it is in whole metres (`5891`, not `5.891`).
 
 ### 4.6 What collectors look up where
 

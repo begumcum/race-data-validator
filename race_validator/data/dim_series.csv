@@ -1,67 +1,103 @@
-series_id,series_name_display,series_name_normalized,scope,country_id,region_id
-1,FIA World Endurance Championship,fia_world_endurance_championship,international,,INT
-2,Intercontinental GT Challenge,intercontinental_gt_challenge,international,,INT
-3,24H Series,24h_series,international,,INT
-4,Porsche Mobil 1 Supercup,porsche_mobil_1_supercup,international,,EUR
-5,European Le Mans Series,european_le_mans_series,regional,,EUR
-6,Michelin Le Mans Cup,michelin_le_mans_cup,regional,,EUR
-7,Fanatec GT World Challenge Europe,fanatec_gt_world_challenge_europe,regional,,EUR
-8,International GT Open,international_gt_open,regional,,EUR
-9,GT Cup Open Europe,gt_cup_open_europe,regional,,EUR
-10,GT4 European Series,gt4_european_series,regional,,EUR
-11,GT2 European Series,gt2_european_series,regional,,EUR
-12,Ligier European Series,ligier_european_series,regional,,EUR
-13,Prototype Cup Germany,prototype_cup_germany,national,DEU,
-14,Ultimate Cup Series,ultimate_cup_series,regional,,EUR
-15,Supercar Challenge,supercar_challenge,regional,,EUR
-16,ESET Cup Series,eset_cup_series,regional,,EUR
-17,IMSA WeatherTech SportsCar Championship,imsa_weathertech_sportscar_championship,regional,,NAM
-18,IMSA Michelin Pilot Challenge,imsa_michelin_pilot_challenge,regional,,NAM
-19,IMSA VP Racing SportsCar Challenge,imsa_vp_racing_sportscar_championship,regional,,NAM
-20,Fanatec GT World Challenge America,fanatec_gt_world_challenge_america,regional,,NAM
-21,GT America,gt_america,regional,,NAM
-22,Pirelli GT4 America,pirelli_gt4_america,regional,,NAM
-23,Trans-Am Series,trans_am_series,national,USA,
-24,Asian Le Mans Series,asian_le_mans_series,regional,,ASI
-25,Fanatec GT World Challenge Asia,fanatec_gt_world_challenge_asia,regional,,ASI
-26,Fanatec GT World Challenge Australia,fanatec_gt_world_challenge_australia,national,AUS,
-27,DTM,dtm,national,DEU,
-28,ADAC GT Masters,adac_gt_masters,national,DEU,
-29,Nürburgring Langstrecken-Serie,nurburgring_langstrecken_serie,national,DEU,
-30,British GT Championship,british_gt_championship,national,GBR,
-31,GT Cup Championship,gt_cup_championship,national,GBR,
-32,Britcar Endurance Championship,britcar_endurance_championship,national,GBR,
-33,Italian GT Championship,italian_gt_championship,national,ITA,
-34,FFSA French GT4 Championship,ffsa_french_gt4_championship,national,FRA,
-35,Campeonato de España de Resistencia & GT,campeonato_de_espana_de_resistencia_gt,national,ESP,
-36,Super GT,super_gt,national,JPN,
-37,Super Taikyu Series,super_taikyu_series,national,JPN,
-38,Thailand Super Series,thailand_super_series,national,THA,
-39,Império Endurance Brasil,imperio_endurance_brasil,national,BRA,
-40,Porsche Carrera Cup,porsche_carrera_cup,national,,
-41,Ferrari Challenge,ferrari_challenge,international,,INT
-42,Lamborghini Super Trofeo,lamborghini_super_trofeo,international,,INT
-43,IMSA Mustang Challenge,imsa_mustang_challenge,regional,,NAM
-44,Italian F4 Championship,italian_f4_championship,national,ITA,
-45,F4 Saudi Arabia,f4_saudi_arabia,national,SAU,
-46,UAE 4 Championship,uae_4_championship,national,ARE,
-47,British F4 Championship,british_f4_championship,national,GBR,
-48,F4 Spanish Championship,f4_spanish_championship,national,ESP,
-49,French F4 Championship,french_f4_championship,national,FRA,
-50,Formula 4 United States Championship,formula_4_united_states_championship,national,USA,
-51,Japanese F4 Championship,japanese_f4_championship,national,JPN,
-52,Chinese F4 Championship,chinese_f4_championship,national,CHN,
-53,Indian F4 Championship,indian_f4_championship,national,IND,
-54,Brazilian F4 Championship,brazilian_f4_championship,national,BRA,
-55,F4 NACAM Championship,f4_nacam_championship,regional,,NAM
-56,F4 CEZ Championship,f4_cez_championship,regional,,EUR
-57,Formula 4 SEA Championship,formula_4_sea_championship,regional,,ASI
-58,AU4 Australian Championship,au4_australian_championship,national,AUS,
-59,E4 Championship,e4_championship,regional,,EUR
-60,Formula Winter Series,formula_winter_series,regional,,EUR
-61,F1 Academy,f1_academy,international,,INT
-62,Eurocup-4 Spanish Winter Championship,eurocup_4_spanish_winter_championship,regional,,EUR
-63,Formula Academy Finland,formula_academy_finland,national,FIN,
-64,SMP F4 Championship,smp_f4_championship,national,RUS,
-65,ADAC F4 Championship,adac_f4_championship,national,DEU,
-66,F4 Argentina Championship,f4_argentina_championship,national,ARG,
+series_id,parent_organization,series_name_display,series_name_normalized,scope,country_id,region_id
+1,,FIA World Endurance Championship,fia_world_endurance_championship,international,,INT
+2,,Intercontinental GT Challenge,intercontinental_gt_challenge,international,,INT
+3,,24H Series,24h_series,international,,INT
+4,,Porsche Mobil 1 Supercup,porsche_mobil_1_supercup,international,,INT
+5,,European Le Mans Series,european_le_mans_series,regional,,EUR
+6,,Michelin Le Mans Cup,michelin_le_mans_cup,regional,,EUR
+7,,Fanatec GT World Challenge Europe,fanatec_gt_world_challenge_europe,regional,,EUR
+8,,International GT Open,international_gt_open,regional,,EUR
+9,,GT Cup Open Europe,gt_cup_open_europe,regional,,EUR
+10,,GT4 European Series,gt4_european_series,regional,,EUR
+11,,GT2 European Series,gt2_european_series,regional,,EUR
+12,,Ligier European Series,ligier_european_series,regional,,EUR
+13,,Prototype Cup Germany,prototype_cup_germany,regional,,EUR
+14,,Ultimate Cup Series,ultimate_cup_series,regional,,EUR
+15,,Supercar Challenge,supercar_challenge,regional,,EUR
+16,,ESET Cup Series,eset_cup_series,regional,,EUR
+17,,IMSA WeatherTech SportsCar Championship,imsa_weathertech_sportscar_championship,regional,,NAM
+18,,IMSA Michelin Pilot Challenge,imsa_michelin_pilot_challenge,regional,,NAM
+19,,IMSA VP Racing SportsCar Challenge,imsa_vp_racing_sportscar_challenge,regional,,NAM
+20,,Fanatec GT World Challenge America,fanatec_gt_world_challenge_america,regional,,NAM
+21,,GT America,gt_america,regional,,NAM
+22,,Pirelli GT4 America,pirelli_gt4_america,regional,,NAM
+23,,Trans-Am Series,trans_am_series,national,USA,
+24,,Asian Le Mans Series,asian_le_mans_series,regional,,ASI
+25,,Fanatec GT World Challenge Asia,fanatec_gt_world_challenge_asia,regional,,ASI
+26,,Fanatec GT World Challenge Australia,fanatec_gt_world_challenge_australia,national,AUS,
+27,,DTM,dtm,national,DEU,
+28,,ADAC GT Masters,adac_gt_masters,national,DEU,
+29,,Nürburgring Langstrecken-Serie,nurburgring_langstrecken_serie,national,DEU,
+30,,British GT Championship,british_gt_championship,national,GBR,
+31,,GT Cup Championship,gt_cup_championship,national,GBR,
+32,,Britcar Endurance Championship,britcar_endurance_championship,national,GBR,
+33,,Italian GT Championship,italian_gt_championship,national,ITA,
+34,,FFSA French GT4 Championship,ffsa_french_gt4_championship,national,FRA,
+35,,Campeonato de España de Resistencia & GT,campeonato_de_espana_de_resistencia_gt,national,ESP,
+36,,Super GT,super_gt,national,JPN,
+37,,Super Taikyu Series,super_taikyu_series,national,JPN,
+38,,Thailand Super Series,thailand_super_series,regional,,ASI
+39,,Império Endurance Brasil,imperio_endurance_brasil,national,BRA,
+40,,IMSA Mustang Challenge,imsa_mustang_challenge,regional,,NAM
+41,Porsche Carrera Cup,Porsche Carrera Cup North America,porsche_carrera_cup_north_america,regional,,NAM
+42,Porsche Carrera Cup,Porsche Carrera Cup Deutschland,porsche_carrera_cup_deutschland,national,DEU,
+43,Porsche Carrera Cup,Porsche Carrera Cup Great Britain,porsche_carrera_cup_great_britain,national,GBR,
+44,Porsche Carrera Cup,Porsche Carrera Cup France,porsche_carrera_cup_france,national,FRA,
+45,Porsche Carrera Cup,Porsche Carrera Cup Italia,porsche_carrera_cup_italia,national,ITA,
+46,Porsche Carrera Cup,Porsche Carrera Cup Asia,porsche_carrera_cup_asia,regional,,ASI
+47,Porsche Carrera Cup,Porsche Carrera Cup Australia,porsche_carrera_cup_australia,national,AUS,
+48,Porsche Carrera Cup,Porsche Carrera Cup Scandinavia,porsche_carrera_cup_scandinavia,regional,,EUR
+49,Porsche Carrera Cup,Porsche Carrera Cup Brasil,porsche_carrera_cup_brasil,national,BRA,
+50,Porsche Carrera Cup,Porsche Carrera Cup Benelux,porsche_carrera_cup_benelux,regional,,EUR
+51,Porsche Carrera Cup,Porsche Carrera Cup Japan,porsche_carrera_cup_japan,national,JPN,
+52,Ferrari Challenge,Ferrari Challenge Europe,ferrari_challenge_europe,regional,,EUR
+53,Ferrari Challenge,Ferrari Challenge North America,ferrari_challenge_north_america,regional,,NAM
+54,Ferrari Challenge,Ferrari Challenge UK,ferrari_challenge_uk,national,GBR,
+55,Ferrari Challenge,Ferrari Challenge Japan,ferrari_challenge_japan,national,JPN,
+56,Ferrari Challenge,Ferrari Challenge Australasia,ferrari_challenge_australasia,regional,,OCE
+57,Ferrari Challenge,Ferrari Challenge Middle East,ferrari_challenge_middle_east,regional,,MID
+58,Lamborghini Super Trofeo,Lamborghini Super Trofeo Europe,lamborghini_super_trofeo_europe,regional,,EUR
+59,Lamborghini Super Trofeo,Lamborghini Super Trofeo North America,lamborghini_super_trofeo_north_america,regional,,NAM
+60,Lamborghini Super Trofeo,Lamborghini Super Trofeo Asia,lamborghini_super_trofeo_asia,regional,,ASI
+61,,Formula 1 World Championship,formula_1_world_championship,international,,INT
+62,,Formula 2 Championship,formula_2_championship,international,,INT
+63,,Formula 3 Championship,formula_3_championship,international,,INT
+64,,Italian F4 Championship,italian_f4_championship,national,ITA,
+65,,F4 Saudi Arabia,f4_saudi_arabia,national,SAU,
+66,Formula Middle East,UAE 4 Championship,uae_4_championship,national,ARE,
+67,,British F4 Championship,british_f4_championship,national,GBR,
+68,,F4 Spanish Championship,f4_spanish_championship,national,ESP,
+69,,French F4 Championship,french_f4_championship,national,FRA,
+70,,Formula 4 United States Championship,formula_4_united_states_championship,national,USA,
+71,,Japanese F4 Championship,japanese_f4_championship,national,JPN,
+72,,Chinese F4 Championship,chinese_f4_championship,national,CHN,
+73,,Indian F4 Championship,indian_f4_championship,national,IND,
+74,,Brazilian F4 Championship,brazilian_f4_championship,national,BRA,
+75,,F4 NACAM Championship,f4_nacam_championship,regional,,NAM
+76,,F4 CEZ Championship,f4_cez_championship,regional,,EUR
+77,,Formula 4 SEA Championship,formula_4_sea_championship,regional,,ASI
+78,,AU4 Australian Championship,au4_australian_championship,national,AUS,
+79,,E4 Championship,e4_championship,regional,,EUR
+80,,Formula Winter Series,formula_winter_series,regional,,EUR
+81,,F1 Academy,f1_academy,international,,INT
+82,,Eurocup-4 Spanish Winter Championship,eurocup_4_spanish_winter_championship,regional,,EUR
+83,,Formula Academy Finland,formula_academy_finland,national,FIN,
+84,,SMP F4 Championship,smp_f4_championship,national,RUS,
+85,,ADAC F4 Championship,adac_f4_championship,national,DEU,
+86,,F4 Argentina Championship,f4_argentina_championship,national,ARG,
+87,,Formula Regional European Championship,formula_regional_european_championship,regional,,EUR
+88,,IndyCar Series,indycar_series,national,USA,
+89,,Indy NXT,indy_nxt,national,USA,
+90,,USF Pro 2000 Championship,usf_pro_2000_championship,national,USA,
+91,,USF2000 Championship,usf2000_championship,national,USA,
+92,,Super Formula Championship,super_formula_championship,national,JPN,
+93,,Formula E World Championship,formula_e_world_championship,international,,INT
+94,,Eurocup-3,eurocup_3,regional,,EUR
+95,,GB3 Championship,gb3_championship,national,GBR,
+96,Racing America,Formula Regional Americas Championship,formula_regional_americas_championship,regional,,NAM
+97,,Formula Regional Japanese Championship,formula_regional_japanese_championship,national,JPN,
+98,,Formula Regional Oceania Championship,formula_regional_oceania_championship,national,NZL,
+99,Formula Middle East,Formula Regional Middle East Championship,formula_regional_middle_east_championship,regional,,MID
+100,,Euroformula Open,euroformula_open,regional,,EUR
+101,,Super Formula Lights,super_formula_lights,national,JPN,
+102,,USF Juniors,usf_juniors,national,USA,
