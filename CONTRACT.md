@@ -1,7 +1,7 @@
-# Race Results Data Contract — v2.3.0
+# Race Results Data Contract — v2.4.0
 
 > **Status:** Active
-> **Library that enforces it:** `race_validator` v0.2.6
+> **Library that enforces it:** `race_validator` v0.2.7
 > **Last revised:** 2026-06-16
 
 ---
@@ -478,6 +478,7 @@ alt_circuit_full_name_display
 | `country_id`, `nationality_code` | `dim_countries.country_id` |
 | `region_id` | `dim_regions.region_id` |
 | `series_id` | `dim_series.series_id` |
+| `series_name_normalized` (results) | `dim_series.series_name_normalized` (for the row's `series_id`) |
 | `circuit_id` | `dim_circuits.circuit_id` |
 | `(sport, discipline, category)` triple | `dim_categories` |
 
@@ -489,7 +490,7 @@ dim, **stop and tell Berkay** — adding it requires a library release.
 v0.3.0 ships. For v0.2.x, the collector fills these in as best they can
 and the validator only checks format.
 
-**Validator:** `MASTER_REF_001`, `MASTER_REF_002`
+**Validator:** `MASTER_REF_001`, `MASTER_REF_002`, `MASTER_REF_003`
 
 ---
 
@@ -503,6 +504,7 @@ All `*_id` columns are required; NULL values fail validation.
 |---|---|---|---|
 | `result_id` | STRING | yes | Surrogate primary key (assigned at DB level, but populated by scraper) |
 | `series_id` | INT | yes | FK to `dim_series` |
+| `series_name_normalized` | STRING | yes | Denormalized from `dim_series`; must equal `dim_series.series_name_normalized` for this `series_id` |
 | `season_label` | STRING | yes | `"2025"` or `"2025-26"` |
 | `round_number` | INT | yes | Sequential round within the season |
 | `session_type` | STRING | yes | `practice` \| `qualifying` \| `race` |

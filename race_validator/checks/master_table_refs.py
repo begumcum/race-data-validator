@@ -6,6 +6,10 @@ Each row's IDs and codes must exist in the bundled reference data:
   - series_id                     → dim_series
   - (sport, discipline, category) → dim_categories (composite triple)
 
+It also checks denormalized lookups that must agree with the dim table:
+  - series_name_normalized        → dim_series.series_name_normalized
+                                     (for the row's series_id)
+
 This is the heaviest check at runtime, so it stops at MAX_EXAMPLES per
 column to keep the report compact. The summary count is always accurate.
 """
@@ -45,6 +49,10 @@ class MasterTableRefsCheck(Check):
                 ctx, "circuit_id", bd.circuit_id_set(), "dim_circuits",
                 hint="Ask Berkay to add this circuit to dim_circuits.csv.",
             ))
+
+        # series_name_normalized must match dim_series for the row's series_id
+        if "series_id" in ctx.df.columns and "series_name_normalized" in ctx.df.columns:
+            results.extend(self._series_name_check(ctx))
 
         # nationality_code (results only)
         if "nationality_code" in ctx.df.columns:
@@ -96,6 +104,51 @@ class MasterTableRefsCheck(Check):
             ),
             location=f"{example_str}{more}",
             fix_hint=hint,
+        )]
+
+    def _series_name_check(self, ctx: ValidationContext) -> list[CheckResult]:
+        """series_name_normalized must equal dim_series's value for series_id."""
+        mapping = bd.series_name_normalized_by_id()
+        bad: list[tuple[int, str, str, str]] = []  # row, series_id, got, expected
+
+        ids = ctx.df["series_id"]
+        names = ctx.df["series_name_normalized"]
+        for row_idx in range(len(ctx.df)):
+            sid = ids.iloc[row_idx]
+            name = names.iloc[row_idx]
+            sid = "" if sid is None else str(sid)
+            name = "" if name is None else str(name)
+            if sid == "" or name == "":
+                continue  # nullability / unknown-id handled by other checks
+            expected = mapping.get(sid)
+            if expected is None:
+                continue  # series_id not in dim_series — MASTER_REF_001 reports it
+            if name != expected:
+                bad.append((row_idx + 1, sid, name, expected))
+
+        if not bad:
+            return []
+
+        examples = bad[:_MAX_EXAMPLES]
+        example_str = "; ".join(
+            f"row {r}: series_id {sid} has '{got}' but dim_series says '{exp}'"
+            for r, sid, got, exp in examples
+        )
+        more = f" (+{len(bad) - _MAX_EXAMPLES} more)" if len(bad) > _MAX_EXAMPLES else ""
+
+        return [CheckResult(
+            severity=self.default_severity,
+            rule_id="MASTER_REF_003",
+            contract_section=self.contract_section,
+            message=(
+                f"Column 'series_name_normalized' has {len(bad)} row(s) that "
+                f"don't match dim_series.series_name_normalized for their series_id"
+            ),
+            location=f"{example_str}{more}",
+            fix_hint=(
+                "Copy series_name_normalized verbatim from dim_series for the "
+                "row's series_id. Do not type or re-normalize it by hand."
+            ),
         )]
 
     def _triple_check(

@@ -83,5 +83,15 @@ def series_id_set() -> frozenset[str]:
 
 
 @cache
+def series_name_normalized_by_id() -> dict[str, str]:
+    """Map series_id -> series_name_normalized from dim_series."""
+    df = get_series()
+    return {
+        row.series_id: row.series_name_normalized
+        for row in df.itertuples(index=False)
+    }
+
+
+@cache
 def circuit_id_set() -> frozenset[str]:
     return frozenset(get_circuits()["circuit_id"].tolist())

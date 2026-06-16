@@ -17,6 +17,9 @@ RESULTS_COLUMNS: tuple[ColumnSpec, ...] = (
     # ---------- Identity & context ----------
     ColumnSpec("result_id", ColumnType.STRING),
     ColumnSpec("series_id", ColumnType.INT),
+    ColumnSpec("series_name_normalized", ColumnType.STRING,
+               notes="denormalized from dim_series; must equal "
+                     "dim_series.series_name_normalized for this series_id"),
     ColumnSpec("season_label", ColumnType.STRING,
                notes='"2025" or "2025-26"'),
     ColumnSpec("round_number", ColumnType.INT),
